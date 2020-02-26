@@ -1,0 +1,123 @@
+@page
+@model AdminModel
+@{
+    ViewData["Title"] = "_LayoutAdmin";
+}
+
+<h2 class="text-center">Article List</h2>
+
+<button id="Add Article" type="button" class="btn btn-primary marginleft" value="Admin" onclick="location.href='/Add'"><span class="glyphicon glyphicon-plus"></span> New Article</button><br> <br>
+<div class="margin">
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Title</th>
+      <th scope="col">Image</th>
+      <th scope="col">Highlight</th>
+      <th scope="col">Updated</th>
+      <th scope="col">Action</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      @{  var count = 0; 
+          ViewBag.items = ViewData["Data"];
+          var articles = ViewBag.items;
+          foreach(var a in articles) {
+            count++;
+    <tr>
+      <th>@count</th>
+      <td>@a.title</td>
+      <td><img style="width:120px" src=@a.image></td>
+      <td>@a.highlight</td>
+      <td>@a.Edited_at</td>
+      <td>
+              <input type="hidden" name="id" value="@a.id">
+              <button type="button" class="btn btn-success" id="edit-@a.id" data-id="@a.id" data-title="@a.title" data-content="@a.content" data-highlight="@a.highlight" data-image="@a.image" data-toggle="modal" data-target="#exampleModal">Edit</button>
+              @* <button id="btn" class="btn btn-success" data-toggle="modal" data-target="#myModal">Edit</button> *@
+      </td>
+      <td>
+            <form method="POST">
+              <input type="hidden" name="id" value="rmv-@a.id">
+              <button id="btn" class="btn btn-danger">Remove</button>
+            </form>
+      </td>
+    </tr> }
+      }
+</table> </div> 
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Article</h4>
+        </div>
+        <div class="modal-body">
+          <input  id="title" type="text" value="" name="title" placeholder="  Title">
+                <input  id="image" type="text" value="" name="cart"  placeholder="  Image (url)">
+                <input  id="desc" type="text" value="" name="cart"  placeholder="  Highlight">
+                <input  id="price" type="text" value="" name="cart"  placeholder="  Content">
+                 <form method="POST">
+              <button id="btnedit" class="btn btn-success">Edit</button>
+                 </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>    
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document" >
+        <div class="modal-content" style="width:500px;height:550px">
+          <div class="modal-header">
+            <h4 class="modal-title"><b>Update Data</b></h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form method="POST">
+          <div class="modal-body">
+            <label for="title"><b>Title</b></label><br>
+            <input type="text" name="edit" class="form-control" value="update" hidden>
+            <input type="text" name="id" id="id1" class="form-control" value="" hidden>
+            <input type="text" name="title" id="title1" class="form-control">
+            <br>
+            <label for="highlight"><b>Highlight</b></label><br>
+            <input type="text"  name="highlight" id="description1" class="form-control">
+            <br>
+            <label for="content"><b>Content</b></label><br>
+            <input type="text"  name="content" id="description1" class="form-control">
+            <br>
+            <label for="image"><b>Image</b></label><br>
+            <input type="text" name="image" id="image1" class="form-control">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: red;color:white;">Close</button>
+            <button type="submit" class="btn btn-primary" id="savechanges" id="edit">Save changes</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        console.log('Masuk Sini')
+        $('#exampleModal').on('show.bs.modal', function (e) {
+        $('#id1').val($(e.relatedTarget).data('id'))
+        $('#title1').val($(e.relatedTarget).data('title'))
+        $('#description1').val($(e.relatedTarget).data('detail'))
+        $('#image1').val($(e.relatedTarget).data('image'))
+    })
+})
+</script>
