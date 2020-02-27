@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApp.Models
@@ -15,5 +16,7 @@ namespace WebApp.Models
 
         [ForeignKey("UserId")]
         public int UserId {get; set;}
+        public ICollection<Comments> comments { get; set; }
+
     }
 }

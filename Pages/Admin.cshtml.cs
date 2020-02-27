@@ -35,7 +35,6 @@ namespace WebApp.Pages
             var get = from a in _appDbContext.Articles select a;
             ViewData["Data"] = get;
         }
-
         public void OnPost(string id, string title, string content, string image, string highlight, string edit)
         {
            if(id.Contains("rmv")){

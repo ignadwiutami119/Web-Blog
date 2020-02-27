@@ -82,7 +82,8 @@ D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\WebApp.dll
 D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\WebApp.pdb
 D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_LayoutAdmin.cshtml.g.cs
 D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Admin.cshtml.g.cs
-D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_LayoutIndex.cshtml.g.cs
-D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Pages\Articles\Delete.cshtml.g.cs
 D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Add.cshtml.g.cs
 D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Read.cshtml.g.cs
+D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\User.cshtml.g.cs
+D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_LayoutUser.cshtml.g.cs
+D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\AdminHome.cshtml.g.cs

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.Data;
 
 namespace WebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200227022642_migrate_again")]
+    partial class migrate_again
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -265,9 +267,6 @@ namespace WebApp.Migrations
                     b.Property<string>("comment")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("created_at")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("email")
                         .HasColumnType("nvarchar(max)");
 
@@ -350,7 +349,7 @@ namespace WebApp.Migrations
             modelBuilder.Entity("WebApp.Models.Comments", b =>
                 {
                     b.HasOne("WebApp.Models.Articles", "cart")
-                        .WithMany("comments")
+                        .WithMany()
                         .HasForeignKey("ArticlesID");
                 });
 #pragma warning restore 612, 618

@@ -7,51 +7,78 @@
    @{ 
           ViewBag.items = ViewData["Data"];
           var articles = ViewBag.items;
-    <div class="col-md-10 blogShort">
+         <div class="col-md-11 blogShort">
+             <br>
                      <h1>@articles.title</h1>
-                     <img src="http://joern-duwe.de/aquaristik/images/skalare00.jpg" alt="post img" class="pull-left img-responsive postImg img-thumbnail margin10">
-                     <article><p>
-                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                         ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only 
-                         five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                         of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of
-                         Lorem Ipsum.
-                         </p>
-                     <p>
-                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                         ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only 
-                         five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                         of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of
-                         Lorem Ipsum.
-                         </p>
-                           <h2>It is so easy</h2>
-                       <p>
-                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                         ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only 
-                         five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                         of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of
-                         Lorem Ipsum.
-                         </p>
-                         <h3>How to lose 20 pounds in 1 week!</h3>
-                          <br>
-                         <iframe width="100%" height="480" src="//www.youtube.com/embed/Bn_d-ghQ5HA" frameborder="0" allowfullscreen></iframe>
-                         
-                         <p>
-                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                         ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only 
-                         five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                         of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of
-                         Lorem Ipsum.
-                         </p>
-                        <h4>It is so easy</h4>
-                       <p>
-                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                         ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only 
-                         five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                         of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of
-                         Lorem Ipsum.
+                     <br>
+                     <img src=@articles.image alt="post img" class="text-center">
+                     <br><br>
+                     <article><h4>
+                         @articles.highlight
+                         </h4>
+                     <p class="text-justify">
+                         @articles.content
                          </p>
                      </article>
                  </div>
+                 <br><br>
           }
-   }
+
+@{
+ViewBag.items = ViewData["Data_Comment"];
+var comments = ViewBag.items;
+if (comments!=null){
+foreach(var a in comments){
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="card card-white post">
+                <div class="post-heading">
+                    <div class="float-left image">
+                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                    </div>
+                    <div class="float-left meta">
+                        <div class="title h5">
+                            <a href="#"><b>@a.email</b></a>
+                            made a comment.
+                        </div>
+                        <h6 class="text-muted time">@a.created_at</h6>
+                    </div>
+                </div> 
+                <div class="post-description"> 
+                    <p>@a.comment</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+}
+}
+}
+
+ <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
+          <div class="container">
+	<div class="row">
+	</div>  
+    <div class="row">
+    <div class="col-md-8">
+    						<div class="widget-area no-padding blank">
+								<div class="status-upload">
+									<form method="POST">
+										<textarea placeholder="Comment for this article" name="comment"></textarea>
+                                        <input type="hidden" name="id" value="@articles.id">
+                                        <ul>
+											<li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Audio"><i class="fa fa-music"></i></a></li>
+											<li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Video"><i class="fa fa-video-camera"></i></a></li>
+											<li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Sound Record"><i class="fa fa-microphone"></i></a></li>
+											<li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
+										</ul>
+										<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Comment</button>
+									</form>
+								</div><!-- Status Upload  -->
+							</div><!-- Widget Area -->
+						</div>
+    </div>
+</div>
+   

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using WebApp.Data;
+using WebApp.Models;
 
 namespace WebApp.Pages
 {
@@ -30,10 +31,32 @@ namespace WebApp.Pages
 
         private ApplicationDbContext _appDbContext;
 
-        public void OnGet()
-        {
-            var get = from a in _appDbContext.Articles select a;
-            ViewData["Data"] = get;
+        public IActionResult OnGet()
+        {   
+            var id = _UserManager.GetUserId(User);
+            var get_user_list = _UserManager.Users.ToList();
+            var adminId = get_user_list[0].Id;
+
+            if(!_appDbContext.Role.Any()) {
+            var role =  new RoleAdmin(){
+                userId = adminId,
+                role = "admin"
+            };
+            _appDbContext.Add(role);
+            _appDbContext.SaveChanges();
+            }
+
+            var getAdmin = from a in _appDbContext.Role select a;
+            foreach (var item in getAdmin)
+            {
+                if(id == item.userId) {
+                    return new RedirectToPageResult("AdminHome");
+                }
+            }
+            // if(id == adminId) {
+            //     return new RedirectToPageResult("Admin");
+            // }
+            return new RedirectToPageResult("User");
         }
     }
 }
