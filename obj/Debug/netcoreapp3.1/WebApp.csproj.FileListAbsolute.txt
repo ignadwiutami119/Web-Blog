@@ -87,3 +87,8 @@ D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Read.csh
 D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\User.cshtml.g.cs
 D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_LayoutUser.cshtml.g.cs
 D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\AdminHome.cshtml.g.cs
+D:\TRAININGC#\FEBRUARI\25Feb\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Role.cshtml.g.cs
+D:\TRAININGC#\FEBRUARI\25Feb\WebApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Facebook.dll
+D:\TRAININGC#\FEBRUARI\25Feb\WebApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll
+D:\TRAININGC#\FEBRUARI\25Feb\WebApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll
+D:\TRAININGC#\FEBRUARI\25Feb\WebApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Twitter.dll

@@ -37,7 +37,7 @@ namespace WebApp.Pages
             var get_user_list = _UserManager.Users.ToList();
             var adminId = get_user_list[0].Id;
 
-            if(!_appDbContext.Role.Any()) {
+            if(!_appDbContext.RoleAdmins.Any()) {
             var role =  new RoleAdmin(){
                 userId = adminId,
                 role = "admin"
@@ -46,7 +46,7 @@ namespace WebApp.Pages
             _appDbContext.SaveChanges();
             }
 
-            var getAdmin = from a in _appDbContext.Role select a;
+            var getAdmin = from a in _appDbContext.RoleAdmins select a;
             foreach (var item in getAdmin)
             {
                 if(id == item.userId) {

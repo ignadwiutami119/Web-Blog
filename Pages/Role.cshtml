@@ -1,0 +1,44 @@
+@page
+@model RoleModel
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<h2 class="text-center">User List</h2>
+<br>
+<div class="margin">
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Id</th>
+      <th scope="col">Email</th>
+      <th scope="col">Username</th>
+      <th scope="col">Role</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      @{  var count = 0; 
+          ViewBag.items = ViewData["Data_user"];
+          var user = ViewBag.items;
+          foreach(var a in user) {
+            count++;
+    <tr>
+      <th>@count</th>
+      <td>@a.Id</td>
+      <td>@a.Email</td>
+      <td>@a.UserName</td>
+      <td>
+            <form method="POST">
+              <select id="role" name="role">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+              <input type="hidden" name="id" value="set-@a.Id">
+              <button id="btn" class="btn btn-success">Set</button>
+            </form>
+      </td>
+    </tr> }
+      }
+</table> </div> 

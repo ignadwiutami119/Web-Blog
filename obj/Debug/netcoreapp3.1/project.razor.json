@@ -20579,6 +20579,11 @@
       "FilePath": "d:\\TRAININGC#\\FEBRUARI\\25Feb\\WebApp\\Pages\\Index.cshtml",
       "TargetPath": "Pages\\Index.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\TRAININGC#\\FEBRUARI\\25Feb\\WebApp\\Pages\\Role.cshtml",
+      "TargetPath": "Pages\\Role.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"

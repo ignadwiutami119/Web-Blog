@@ -11,7 +11,7 @@ namespace WebApp.Data
     {
         public DbSet<Articles> Articles {get;set;}
         public DbSet<Comments> Comments {get;set;}
-        public DbSet<RoleAdmin> Role {get;set;}
+        public DbSet<RoleAdmin> RoleAdmins {get;set;}
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {     

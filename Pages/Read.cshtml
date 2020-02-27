@@ -4,6 +4,9 @@
     ViewData["Title"] = "_Layout";
 }
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
    @{ 
           ViewBag.items = ViewData["Data"];
           var articles = ViewBag.items;
@@ -27,6 +30,7 @@
 @{
 ViewBag.items = ViewData["Data_Comment"];
 var comments = ViewBag.items;
+ViewBag.user = ViewData["Data_user"];
 if (comments!=null){
 foreach(var a in comments){
 <div class="container">
@@ -47,6 +51,9 @@ foreach(var a in comments){
                 </div> 
                 <div class="post-description"> 
                     <p>@a.comment</p>
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-danger"><span class="fa fa-trash"></span></button>
                 </div>
             </div>
         </div>
@@ -81,4 +88,6 @@ foreach(var a in comments){
 						</div>
     </div>
 </div>
+<br><br><br><br><br>
+
    

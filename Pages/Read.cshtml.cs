@@ -34,8 +34,10 @@ namespace WebApp.Pages
         public void OnGet(int id)
         {   var get_comment = from a in _appDbContext.Comments where a.ArticlesID == id select a;
             var get = _appDbContext.Articles.Find(id);
+            var get_user = _UserManager.GetUserName(User);
             ViewData["Data_Comment"] = get_comment;
             ViewData["Data"] = get;
+            ViewData["Data_user"] = get_user;
         }
         public void OnPost(int id, string comment)
         {   var getuser = _UserManager.GetUserName(User);
@@ -51,6 +53,8 @@ namespace WebApp.Pages
             ViewData["Data"] = get;
             var get_comment = from a in _appDbContext.Comments where a.ArticlesID == id select a;
             ViewData["Data_Comment"] = get_comment;
+            var get_user = _UserManager.GetUserName(User);
+            ViewData["Data_user"] = get_user;
         }
     }
 }
