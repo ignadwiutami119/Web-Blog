@@ -4,14 +4,15 @@
     Layout = "_LayoutAdmin";
 }
  <div>
-            <form class="form-style" action="" method="POST">
+            <form class="form-style" action="" enctype="multipart/form-data" method="POST">
                 <div class="text-center">
                 </div>
                 <br>
                 <input  id="title" type="text" value="" name="title" placeholder="  Title">
                 <input  id="highlight" type="text" value="" name="highlight"  placeholder="  Highlight">
                 <input  id="content" type="text" value="" name="content"  placeholder="  Content">
-                <input  id="image" type="text" value="" name="image"  placeholder="  Image (url)">
+                <input  id="imagetext" type="text" value="" name="imagetext"  placeholder="  Image">
+                <input  id="image" type="file" value="" name="image"  placeholder="  Image (url)">
                 <button id="button" type="submit" class="btn btn-success" value="Add" onclick="">Add Article</button><br><br>
             </form>
             </div>
