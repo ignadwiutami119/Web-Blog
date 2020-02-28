@@ -4,9 +4,19 @@
     Layout = "_LayoutAdmin";
 }
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container-fluid">
+  <div class="row content">
+    
+<div class="col-sm-9">
 @{
     ViewBag.items = ViewData["Data"];
+    ViewBag.user = ViewData["Data-user"];
     var a = ViewBag.items;
+    var is_login = ViewBag.user;
+    
     foreach(var item in a){
                  <div class="col-md-10 blogShort">
                      <br>
@@ -15,6 +25,63 @@
                      <article><p>
                          @item.highlight    
                          </p></article>
-                     <button class="btn btn-blog pull-right marginBottom10" onclick="window.location.href='/Read?id=@item.id'">READ MORE</button> 
-                 </div> }
+                     <button class="btn btn-blog pull-right marginBottom10" onclick="window.location.href='/Read?id=@item.id&login=@is_login'">READ MORE</button> <br>
+                 </div><br> }
 }
+</div>
+
+<div class="col-sm-3 sidenav">
+        <br>
+      <h4><b>Travel Blog</b></h4>
+      <div class="input-group">
+      <form method="POST">
+        <input type="text" name="search" class="form-control" placeholder="Search Blog..">
+          <button class="btn btn-success" type="submit">
+            <span class="fa fa-search"></span>
+          </button>
+        </form>
+        </div>
+        <br>
+        <h4>Recent Posts</h4>
+        @{
+            ViewBag.recent = ViewData["Recent"];
+            foreach (var b in ViewBag.recent) {
+                <a href="/Read?id=@b.id">@b.title</a>
+                <br><br>
+            }
+        }<br><br>
+        <div>
+            <img style="width:240px" src="https://i0.wp.com/blog.reddoorz.com/wp-content/uploads/2019/08/redBusxReddoorz_1200x800-1.jpg?fit=1200%2C800&ssl=1">
+        </div>
+        <br>
+        <div>
+            <img style="width:240px" src="https://lh4.googleusercontent.com/proxy/6KDWx7UXO6Tq_Bmzqm7v-Ufrq1ih652AqVyJRgBFGhc7XkH0vPFOJHoBhY-qIwr0FNbDQyJkMZ7L3OMCMGbVVJr4H-a5j_eQzeGBipBrdl6zqrtWpRkuKqhPHZ3d2_w">
+        </div>
+        <br>
+        <div>
+            <img style="width:240px" src="https://ecs7.tokopedia.net/img/attachment/2020/1/31/59196236/59196236_37482518-d402-4e54-b4c8-b7ec2d5f2f3d.jpg">
+        </div>
+      </div>
+      
+</div></div>
+
+<div class="container" style="float:left">
+<div>
+<nav aria-label="...">
+  <ul class="pagination marginleft">
+    <li class="page-item">
+      <a class="page-link" href="/Home/Paging?prev=1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" value="1" id="btn1" href="/AdminHome?_crntpage=1">1</a></li>
+    <li class="page-item"><a class="page-link" value="2" id="btn2" href="/AdminHome?_crntpage=2">2</a></li>
+    <li class="page-item"><a class="page-link" value="3" id="btn3" href="/AdminHome?_crntpage=3">3</a></li>
+    <li class="page-item"><a class="page-link" value="4" id="btn4" href="/AdminHome?_crntpage=4">4</a></li>
+    <li class="page-item"><a class="page-link" value="5" id="btn5" href="/AdminHome?_crntpage=5">5</a></li>
+    <li class="page-item"><a class="page-link" value="6" id="btn6" href="/AdminHome?_crntpage=6">6</a></li>
+    <li class="page-item">
+      <a class="page-link" href="/Home/Paging?next=1">Next</a>
+    </li>
+  </ul>
+<br><br><br></div>
+
+<br><br><br><br>

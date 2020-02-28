@@ -69,10 +69,10 @@
             <input type="text" name="title" id="title1" class="form-control">
             <br>
             <label for="highlight"><b>Highlight</b></label><br>
-            <input type="text"  name="highlight" id="description1" class="form-control">
+            <input type="text"  name="highlight" id="highlight1" class="form-control">
             <br>
             <label for="content"><b>Content</b></label><br>
-            <input type="text"  name="content" id="description1" class="form-control">
+            <input type="text"  name="content" id="content1" class="form-control">
             <br>
             <label for="image"><b>Image</b></label><br>
             <input type="text" name="image" id="image1" class="form-control">
@@ -94,7 +94,8 @@
         $('#exampleModal').on('show.bs.modal', function (e) {
         $('#id1').val($(e.relatedTarget).data('id'))
         $('#title1').val($(e.relatedTarget).data('title'))
-        $('#description1').val($(e.relatedTarget).data('detail'))
+        $('#highlight1').val($(e.relatedTarget).data('highlight'))
+        $('#content1').val($(e.relatedTarget).data('content'))
         $('#image1').val($(e.relatedTarget).data('image'))
     })
 })

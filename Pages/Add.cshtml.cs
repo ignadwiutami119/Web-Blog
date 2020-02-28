@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -11,6 +12,7 @@ using WebApp.Models;
 
 namespace WebApp.Pages
 {
+    [Authorize]
     public class AddModel : PageModel
     {
         private readonly ILogger<AddModel> _logger;
@@ -39,6 +41,11 @@ namespace WebApp.Pages
 
         public void OnPost(string title, string highlight, string content, string image)
         {
+            Console.WriteLine(highlight);
+            Console.WriteLine(content);
+            Console.WriteLine(image);
+            Console.WriteLine(title);
+            Console.WriteLine("WOY");
            Articles articles = new Articles(){
                title = title,
                highlight = highlight,
