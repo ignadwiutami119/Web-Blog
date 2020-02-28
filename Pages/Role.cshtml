@@ -4,6 +4,30 @@
     Layout = "_LayoutAdmin";
 }
 
+<h3 class="text-center">Admin</h3>
+<br>
+<table class="table table-sm table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">User ID</th>
+      <th scope="col">Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    @{ ViewBag.admin = ViewData["Admin"];
+       var count = 0;
+       foreach(var a in ViewBag.admin) {
+         count++;
+    <tr>
+      <th scope="row">@count</th>
+      <td>@a.userId</td>
+      <td>@a.role</td>
+    </tr>
+    } }
+  </tbody>
+</table>
+
 <h2 class="text-center">User List</h2>
 <br>
 <div class="margin">
@@ -19,13 +43,13 @@
     </tr>
   </thead>
   <tbody>
-      @{  var count = 0; 
+      @{  var _count = 0; 
           ViewBag.items = ViewData["Data_user"];
           var user = ViewBag.items;
           foreach(var a in user) {
-            count++;
+            _count++;
     <tr>
-      <th>@count</th>
+      <th>@_count</th>
       <td>@a.Id</td>
       <td>@a.Email</td>
       <td>@a.UserName</td>

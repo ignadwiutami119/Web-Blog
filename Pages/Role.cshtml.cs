@@ -35,19 +35,19 @@ namespace WebApp.Pages
         {   
             var get_user_list = _UserManager.Users.ToList();
             ViewData["Data_user"] = get_user_list;
+            var get_admin = from a in _appDbContext.RoleAdmins select a;
+            ViewData["Admin"] = get_admin;
         }
 
         public void OnPost(string id, string role)
         {   Console.WriteLine(id);
             Console.WriteLine(role);
-            Console.WriteLine("TESTTEST");
             if(role == "admin") 
             {
                var get_id = id.Replace("set-","");
                var is_it_new = from a in _appDbContext.RoleAdmins where get_id == a.userId select a;
                if(!is_it_new.Any())
                {
-                Console.WriteLine("DISINI");
                 var Admin = new RoleAdmin {
                    role = "admin",
                    userId = get_id
@@ -69,6 +69,8 @@ namespace WebApp.Pages
             }
             var get_user_list = _UserManager.Users.ToList();
             ViewData["Data_user"] = get_user_list;
+            var get_admin = from a in _appDbContext.RoleAdmins select a;
+            ViewData["Admin"] = get_admin;
         }
     }
 }

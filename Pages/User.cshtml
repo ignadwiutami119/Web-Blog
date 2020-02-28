@@ -6,7 +6,11 @@
 
 @{
     ViewBag.items = ViewData["Data"];
+    //LANJUT DISINI OK//
+    //mau detect apakah user login kalo ga login komen ga tampil
+    ViewBag.user = ViewData["Data-user"];
     var a = ViewBag.items;
+    var is_login = ViewBag.user;
     foreach(var item in a){
                  <div class="col-md-10 blogShort">
                      <br>
@@ -15,6 +19,6 @@
                      <article><p>
                          @item.highlight    
                          </p></article>
-                     <button class="btn btn-blog pull-right marginBottom10" onclick="window.location.href='/Read?id=@item.id'">READ MORE</button> 
+                     <button class="btn btn-blog pull-right marginBottom10" onclick="window.location.href='/Read?id=@item.id&login=@is_login'">READ MORE</button> 
                  </div> }
 }

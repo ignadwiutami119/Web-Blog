@@ -31,6 +31,7 @@
 ViewBag.items = ViewData["Data_Comment"];
 var comments = ViewBag.items;
 ViewBag.user = ViewData["Data_user"];
+var user = ViewBag.user;
 if (comments!=null){
 foreach(var a in comments){
 <div class="container">
@@ -39,7 +40,12 @@ foreach(var a in comments){
             <div class="card card-white post">
                 <div class="post-heading">
                     <div class="float-left image">
-                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                        @{
+                         if(user == a.email){
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUDVRKKScyCXDd97MrZ_6pEPYJLPrhH9TSULy-aFG1KnzSPHgIvQ&s" class="img-circle avatar" alt="user profile image">}
+                        else {
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyJ5Dn-YPzpm2VQgjft5SSZEqTSsYrdTTM8bMuXsBRzamYoqrA&s" class="img-circle avatar" alt="user profile image">
+                        } }
                     </div>
                     <div class="float-left meta">
                         <div class="title h5">
@@ -52,9 +58,15 @@ foreach(var a in comments){
                 <div class="post-description"> 
                     <p>@a.comment</p>
                 </div>
+                @{
+                if(user == a.email){
                 <div class="text-right">
+                    <form method="POST">
+                    <input type="hidden" name="id_comment" value="@a.id">
                     <button class="btn btn-danger"><span class="fa fa-trash"></span></button>
-                </div>
+                    </form>
+                </div>}
+                }  
             </div>
         </div>
         
@@ -64,6 +76,8 @@ foreach(var a in comments){
 }
 }
 
+@{ ViewBag.login = ViewData["login"];
+if(ViewBag.login != null) {
  <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
           <div class="container">
 	<div class="row">
@@ -87,7 +101,7 @@ foreach(var a in comments){
 							</div><!-- Widget Area -->
 						</div>
     </div>
-</div>
+</div> } }
 <br><br><br><br><br>
 
    

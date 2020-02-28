@@ -34,7 +34,9 @@ namespace WebApp.Pages
         public void OnGet()
         {   
             var get = from a in _appDbContext.Articles select a;
+            var is_it_login = _UserManager.GetUserId(User);
             ViewData["Data"] = get;
+            ViewData["Data_user"] = is_it_login;
         }
     }
 }
