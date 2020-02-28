@@ -31,18 +31,16 @@ namespace WebApp.Pages
 
         private ApplicationDbContext _appDbContext;
 
-        public void OnGet(int id, string login)
+        public void OnGet(int id)
         {   var get_comment = from a in _appDbContext.Comments where a.ArticlesID == id select a;
             var get = _appDbContext.Articles.Find(id);
             var get_user = _UserManager.GetUserName(User);
             ViewData["Data_Comment"] = get_comment;
             ViewData["Data"] = get;
             ViewData["Data_user"] = get_user;
-            ViewData["login"] = login;
         }
         public void OnPost(int id, string comment, string id_comment)
         {   Console.WriteLine(id_comment);
-            Console.WriteLine("WOY");
             if(comment != null) {
             var getuser = _UserManager.GetUserName(User);
             var obj = new Comments{

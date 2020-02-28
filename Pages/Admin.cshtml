@@ -4,6 +4,8 @@
     Layout = "_LayoutAdmin";
 }
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <h2 class="text-center">Article List</h2>
 
 <button id="Add Article" type="button" class="btn btn-primary marginleft" value="Admin" onclick="location.href='/Add'"><span class="glyphicon glyphicon-plus"></span> New Article</button><br> <br>
@@ -32,47 +34,23 @@
       <td><img style="width:120px" src=@a.image></td>
       <td>@a.highlight</td>
       <td>@a.Edited_at</td>
-      <td>
+      <td><div class="container">
+        <div class="row">
+          <div class="col-5">
               <input type="hidden" name="id" value="@a.id">
-              <button type="button" class="btn btn-success" id="edit-@a.id" data-id="@a.id" data-title="@a.title" data-content="@a.content" data-highlight="@a.highlight" data-image="@a.image" data-toggle="modal" data-target="#exampleModal">Edit</button>
-              @* <button id="btn" class="btn btn-success" data-toggle="modal" data-target="#myModal">Edit</button> *@
-      </td>
-      <td>
+              <button type="button" class="btn btn-success" id="edit-@a.id" data-id="@a.id" data-title="@a.title" data-content="@a.content" data-highlight="@a.highlight" data-image="@a.image" data-toggle="modal" data-target="#exampleModal"><span class="fa fa-edit"></button>
+              </div>&nbsp&nbsp
+              <div class="col-5">
             <form method="POST">
               <input type="hidden" name="id" value="rmv-@a.id">
-              <button id="btn" class="btn btn-danger">Remove</button>
-            </form>
+              <button id="btn" class="btn btn-danger"><span class="fa fa-trash"></button>
+            </form></div>
+            </div></div>
       </td>
     </tr> }
       }
 </table> </div> 
-
-
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Edit Article</h4>
-        </div>
-        <div class="modal-body">
-          <input  id="title" type="text" value="" name="title" placeholder="  Title">
-                <input  id="image" type="text" value="" name="cart"  placeholder="  Image (url)">
-                <input  id="desc" type="text" value="" name="cart"  placeholder="  Highlight">
-                <input  id="price" type="text" value="" name="cart"  placeholder="  Content">
-                 <form method="POST">
-              <button id="btnedit" class="btn btn-success">Edit</button>
-                 </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>    
-    </div>
-  </div>
-</div>
-
+<br><br><br><br>
 
 <div class="modal" id="exampleModal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document" >

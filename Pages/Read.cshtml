@@ -1,5 +1,7 @@
 @page 
 @model ReadModel
+@inject SignInManager<IdentityUser> SignInManager
+
 @{
     ViewData["Title"] = "_Layout";
 }
@@ -76,8 +78,8 @@ foreach(var a in comments){
 }
 }
 
-@{ ViewBag.login = ViewData["login"];
-if(ViewBag.login != null) {
+@if (SignInManager.IsSignedIn(User))
+{
  <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
           <div class="container">
 	<div class="row">
@@ -101,7 +103,7 @@ if(ViewBag.login != null) {
 							</div><!-- Widget Area -->
 						</div>
     </div>
-</div> } }
+</div> } 
 <br><br><br><br><br>
 
    

@@ -13,9 +13,6 @@ namespace WebApp.Models
         public string highlight {get; set;}
         public string content {get; set;}
         public string title {get; set;}
-
-        [ForeignKey("UserId")]
-        public int UserId {get; set;}
         public ICollection<Comments> comments { get; set; }
 
     }

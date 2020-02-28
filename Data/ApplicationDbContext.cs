@@ -10,6 +10,7 @@ namespace WebApp.Data
     public class ApplicationDbContext : IdentityDbContext
     {
         public DbSet<Articles> Articles {get;set;}
+        public DbSet<Paging> Pagings {get;set;}
         public DbSet<Comments> Comments {get;set;}
         public DbSet<RoleAdmin> RoleAdmins {get;set;}
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)

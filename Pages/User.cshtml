@@ -4,6 +4,12 @@
     Layout = "_LayoutUser";
 }
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<div class="container-fluid">
+  <div class="row content">
+    
+<div class="col-sm-9">
 @{
     ViewBag.items = ViewData["Data"];
     //LANJUT DISINI OK//
@@ -11,6 +17,7 @@
     ViewBag.user = ViewData["Data-user"];
     var a = ViewBag.items;
     var is_login = ViewBag.user;
+    
     foreach(var item in a){
                  <div class="col-md-10 blogShort">
                      <br>
@@ -19,6 +26,53 @@
                      <article><p>
                          @item.highlight    
                          </p></article>
-                     <button class="btn btn-blog pull-right marginBottom10" onclick="window.location.href='/Read?id=@item.id&login=@is_login'">READ MORE</button> 
-                 </div> }
+                     <button class="btn btn-blog pull-right marginBottom10" onclick="window.location.href='/Read?id=@item.id&login=@is_login'">READ MORE</button> <br>
+                 </div><br> }
 }
+</div>
+
+<div class="col-sm-3 sidenav">
+        <br>
+      <h3><b>My Blog</b></h3>
+      <div class="input-group">
+        <form method="POST">
+        <input type="text" name="search" class="form-control" placeholder="Search Blog..">
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="submit">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span></form>
+        <br>
+        <h4>Recent Posts</h4>
+        @{
+            ViewBag.recent = ViewData["Recent"];
+            foreach (var b in ViewBag.recent) {
+                <a href="/Read?id=@b.id">@b.title</a>
+                <br><br>
+            }
+        }
+
+      </div></div>
+      
+</div></div>
+
+<div class="container" style="float:left">
+<div>
+<nav aria-label="...">
+  <ul class="pagination marginleft">
+    <li class="page-item">
+      <a class="page-link" href="/Home/Paging?prev=1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" value="1" id="btn1" href="/User?_crntpage=1">1</a></li>
+    <li class="page-item"><a class="page-link" value="2" id="btn2" href="/User?_crntpage=2">2</a></li>
+    <li class="page-item"><a class="page-link" value="3" id="btn3" href="/User?_crntpage=3">3</a></li>
+    <li class="page-item"><a class="page-link" value="4" id="btn4" href="/User?_crntpage=4">4</a></li>
+    <li class="page-item"><a class="page-link" value="5" id="btn5" href="/User?_crntpage=5">5</a></li>
+    <li class="page-item"><a class="page-link" value="6" id="btn6" href="/User?_crntpage=6">6</a></li>
+    <li class="page-item">
+      <a class="page-link" href="/Home/Paging?next=1">Next</a>
+    </li>
+  </ul>
+<br></div>
+
+<br><br><br><br>

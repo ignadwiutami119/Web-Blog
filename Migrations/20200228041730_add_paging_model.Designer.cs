@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.Data;
 
 namespace WebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200228041730_add_paging_model")]
+    partial class add_paging_model
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -273,24 +275,6 @@ namespace WebApp.Migrations
                     b.HasIndex("ArticlesID");
 
                     b.ToTable("Comments");
-                });
-
-            modelBuilder.Entity("WebApp.Models.Paging", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("curent_page")
-                        .HasColumnType("int");
-
-                    b.Property<int>("showitem")
-                        .HasColumnType("int");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Pagings");
                 });
 
             modelBuilder.Entity("WebApp.Models.RoleAdmin", b =>
